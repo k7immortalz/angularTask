@@ -1,0 +1,35 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-12 mb-2 d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary" (click)="addModalComponentIndex(0)" data-bs-toggle="modal"
+                data-bs-target="#exampleModal"><fa-icon [icon]="plusIcon"></fa-icon> Add Customer</button>
+        </div>
+        <div class="col-12 mb-2  d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary" (click)="addModalComponentIndex(1)" data-bs-toggle="modal"
+                [disabled]="customerData.length==0" data-bs-target="#exampleModal"><fa-icon [icon]="plusIcon"></fa-icon>
+                Add Pin</button>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Image</th>
+                <th scope="col">Collaboratory</th>
+                <th scope="col">Privacy</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of tableData">
+            <tr>
+                <th scope="row">{{item.Ptitle}}</th>
+                <td><img [src]="item.Pimage" alt="Base64 Image" height="70px" width="50px"></td>
+                <td>{{item.Pcustomer}}</td>
+                <td>{{item.Pprivacy}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+<app-bs-modal></app-bs-modal>

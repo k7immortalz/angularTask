@@ -1,0 +1,54 @@
+<!-- <input type="file" ng2FileSelect [uploader]="uploader" (change)="fgh()"/>
+
+<img [src]="imageDataURL" alt="Image"> -->
+
+
+<form [formGroup]="PinForm" (ngSubmit)="onSubmit()">
+
+    <div class="mb-3 row">
+        <label for="Ptitle" class="col-sm-2 col-form-label">Title</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="Ptitle" formControlName="Ptitle">
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="Pimage" class="col-sm-2 col-form-label">Image</label>
+        <div class="col-sm-10">
+            <input type="file" class="form-control" ng2FileSelect [uploader]="uploader" (change)="UploadImage()"
+                id="Pimage">
+        </div>
+    </div>
+
+
+    <div class="mb-3 row">
+        <label for="Pcustomer" class="col-sm-2 col-form-label">Customer</label>
+        <div class="col-sm-10">
+            <ngx-select [multiple]="true" [items]="customerList" (click)="getCustomers()" id="Pcustomer"
+                formControlName="Pcustomer"></ngx-select>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="Pprivacy" class="col-sm-2 col-form-label">Privacy</label>
+        <div class="col-sm-10 mt-2">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineRadio1" value="Public"
+                    formControlName="Pprivacy">
+                <label class="form-check-label" for="inlineRadio1">Public</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineRadio2" value="Private"
+                    formControlName="Pprivacy">
+                <label class="form-check-label" for="inlineRadio2">Private</label>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="d-flex justify-content-center">
+        <button type="submit" [disabled]="!PinForm.valid" class="btn btn-secondary" data-bs-dismiss="modal">Create Customer</button>
+    </div>
+
+</form>
